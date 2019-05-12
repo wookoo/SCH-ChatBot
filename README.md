@@ -1,0 +1,1 @@
+SCH_CHAT_BOT
