@@ -46,6 +46,35 @@ pip install 라이브러리명
 - [(신)동네예보정보조회서비스](https://www.data.go.kr/dataset/15000099/openapi.do)
 - [OpenWeatherMap](https://openweathermap.org/api)
 
+### 파일 구조
+
+각 파일에서 주석 업데이트 중입니다.
+
+~~~
+SCH_CHAT_BOT/
+  ├─ addon/
+  │  ├─ asanbus.py (버스 정보)
+  │  ├─ find_book.py (도서 검색 정보)
+  │  ├─ GetDB.py (챗봇 이용 횟수 업데이트)
+  │  ├─ GetLibrary.py (열람실 좌석정보)
+  │  ├─ train.py (지하철및 셔틀버스 정보)
+  │  ├─ weather_edit.py (날씨 정보)
+  │  └─ weather_edit_eng.py (영어 날씨 정보)
+  │
+  ├─ DATABASE/
+  │  ├─ meals.db (학식 정보 저장)
+  │  └─ kakaotalkLog.db (챗봇 이용 횟수 정보 저장)
+  │
+  └─ module/
+     ├─ buttons.py (반환되는 버튼)
+     ├─ buttons_eng.py (반환되는 영어 버튼)
+     ├─ message.py (반환되는 메세지 ex: 와이파이 정보 등)
+     ├─ message_eng.py (반환되는 영어 메세지)
+     └─ process.py (Return 형식 분류)
+
+~~~
+
+
 
 ## 사전작업
 
@@ -125,3 +154,8 @@ python manage.py runserver 0.0.0.0:포트번호
 - 보건실 위치확인 가능
 - 이용시간 확인 가능
 - 체성분 측정시간 확인 가능
+
+
+## 기타
+
+카카오톡 측에서 더이상 지원하지 않게될 API 이므로, 더이상의 업데이트는 없습니다.
