@@ -27,19 +27,19 @@ def weather_parshing(API_KEY):
 
 def weather():
     try :
-        KEY1 = "" #openWeatherAPI 의 키값
+        KEY1 = "" #https://openweathermap.org/api 에서 받아온 키
         return weather_parshing(KEY1)
 
     except:
-        KEY2 = ""#openWeatherAPI 의 키
+        KEY2 = ""#https://openweathermap.org/api 에서 받아온 키
         return weather_parshing(KEY2)
 
 def air_status():
     import urllib.request
     from bs4 import BeautifulSoup
     url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey='
-    KEY = "" #openapi 의 대기오염도 API 의 키값.
-    url += KEY +"&ver=1.3"
+    KEY = "" #https://www.data.go.kr/dataset/15000099/openapi.do 의 키값.
+    url += KEY +"&numOfRows=999&pageSize=999&pageNo=1&startPage=1&sidoName=%EC%B6%A9%EB%82%A8&ver=1.3'"
     page = urllib.request.urlopen(url)
     text = page.read().decode('utf8')
     soup = BeautifulSoup(text, 'html.parser')

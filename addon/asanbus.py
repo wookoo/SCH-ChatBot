@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 def get_xml(stop_id):
     url = 'http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?serviceKey='
-    KEY = ''#openAPI 에서 받아온 KEY 입력
+    KEY = ''#https://www.data.go.kr/dataset/15000515/openapi.do 에서 받아온 KEY 입력
     url += KEY
     url +='&cityCode=34040&nodeId=ASB'
     url = url + str(stop_id)
