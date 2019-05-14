@@ -41,7 +41,7 @@ def air_status():
     text = page.read().decode('utf8')
     soup = BeautifulSoup(text, 'html.parser')
     error_checker = text.find('도고면')
-    if error_checker != -1:
+    if error_checker != -1: #파싱을 할수 있으면
         items = soup.find_all('item')
         items = list(items)
         index = 0
@@ -54,6 +54,8 @@ def air_status():
                 index = index + 1
 
         if len(items) != index:
+
+            #아황산가스 일산화탄소 농도 등을 파싱하는 부분
             need_parsing = str(items[index])
             start_so2value = need_parsing.find('<so2value>')
             end_so2value = need_parsing.find('</so2value>')
@@ -73,6 +75,9 @@ def air_status():
             start_pm25value = need_parsing.find('<pm25value>')
             end_pm25value = need_parsing.find('</pm25value>')
             pm25value = need_parsing[start_pm25value + len('<pm25value>') : end_pm25value]
+
+            #아황산가스 일산화탄소 농도 등을 파싱하는 부분 끝
+
             #print(so2value) #아황산가스
             #print(covalue) #일산화탄소 농도
             #print(o3value) #오존농도
