@@ -1,7 +1,7 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import re
-def get_xml(stop_id):
+def get_xml(stop_id): #정류장 번호를 받아온다.
     url = 'http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?serviceKey='
     KEY = ''#https://www.data.go.kr/dataset/15000515/openapi.do 에서 받아온 KEY 입력
     url += KEY
@@ -11,11 +11,11 @@ def get_xml(stop_id):
     text = page.read().decode('utf8')
     error_checker = text.find('<item>')
     soup = BeautifulSoup(text, 'html.parser')
-    if error_checker != -1:
+    if error_checker != -1: #정상적으로 해당 정류장에 도착할 버스가 존재하면
         items = soup.find_all('item')
-        return items
+        return items #버스들을 반환하고
     else:
-        return None
+        return None #없으면 None 을 반환한다.
 
 def parsing(line_number,bus_id,xml):
     index = 0
